@@ -1,0 +1,20 @@
+name: Auto Deploy Search API
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Go to project dir
+        run: cd /var/www/listings-republishing-job/listings-republish/
+
+      - name: Git pull
+        run: git pull
